@@ -1,9 +1,17 @@
-from server_function.client import *
-from server_function.server import *
+import sys
+
+from PyQt6.QtWidgets import QApplication
+
+
+from interfase.main_window import MainWindow
 
 def main():
-    # start_server()
-    start_client()
+    app = QApplication(sys.argv)
+
+    window = MainWindow()
+    window.show()
+
+    app.exec()
 
 if __name__ == "__main__":
     main()
