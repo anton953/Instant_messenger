@@ -2,10 +2,11 @@ import sys
 
 from PyQt6.QtWidgets import (
     QWidget,
+    QVBoxLayout
 )
 
 
-class Gamburger(QWidget):
+class ListChats(QVBoxLayout):
     def __init__(self):
         super().__init__()
         self.initUI()

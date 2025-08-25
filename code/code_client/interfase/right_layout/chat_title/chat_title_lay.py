@@ -2,10 +2,11 @@ import sys
 
 from PyQt6.QtWidgets import (
     QWidget,
+    QHBoxLayout
 )
 
 
-class ListChats(QWidget):
+class RightLay(QHBoxLayout):
     def __init__(self):
         super().__init__()
         self.initUI()
