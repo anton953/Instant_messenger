@@ -5,8 +5,8 @@ from PyQt6.QtWidgets import (
     QVBoxLayout
 )
 
-from code_client.interfase.left_window.gamburger import Gamburger
-from code_client.interfase.left_window.list_chats import ListChats
+from interfase.left_layout.gamburger import Gamburger
+from interfase.left_layout.list_chats import ListChats
 
 class LeftWindow(QVBoxLayout):
     def __init__(self):
@@ -14,5 +14,5 @@ class LeftWindow(QVBoxLayout):
         self.initUI()
 
     def initUI(self):
-        self.addWidget(Gamburger)
-        self.addWidget(ListChats)
+        self.addWidget(Gamburger())
+        self.addLayout(ListChats())

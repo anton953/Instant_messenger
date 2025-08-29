@@ -2,8 +2,8 @@ import sys
 
 from PyQt6.QtWidgets import QMainWindow, QHBoxLayout, QWidget
 
-from code_client.interfase.left_layout.left_lay import LeftWindow
-from code_client.interfase.right_layout.right_lay import RightLay
+from interfase.left_layout.left_lay import LeftWindow
+from interfase.right_layout.right_lay import RightLay
 
 
 class MainWindow(QMainWindow):
