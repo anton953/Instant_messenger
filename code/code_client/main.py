@@ -1,17 +1,18 @@
 import sys
+from PySide6.QtWidgets import QApplication
+from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtCore import QUrl
 
-from PyQt6.QtWidgets import QApplication
 
+app = QApplication(sys.argv)
+    
+engine = QQmlApplicationEngine()
 
-from interfase.main_window import MainWindow
+engine.load(QUrl.fromLocalFile("code/code_client/interface/QML/main_window.qml"))
 
-def main():
-    app = QApplication(sys.argv)
-
-    window = MainWindow()
-    window.show()
-
-    app.exec()
-
+    
+if not engine.rootObjects():
+    sys.exit(-1)
+    
 if __name__ == "__main__":
-    main()
+    sys.exit(app.exec())
