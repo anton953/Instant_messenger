@@ -1,2 +1,3 @@
 # Instant_messenger
-## документация по библиотеке pyqt6: https://doc.qt.io/qtforpython-6/gettingstarted.html
+## Документация по библиотеке PySide6 
+## https://doc.qt.io/qt-6/qtquick-qmlmodule.html
