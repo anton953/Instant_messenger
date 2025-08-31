@@ -2,7 +2,7 @@
 
 function sendMessage({
     // ОБЯЗАТЕЛЬНЫЕ ПАРПМЕТРЫ
-    type = "text",         // Тип сообщения text/file/image/audio/video/location/reply и возможно в будущем другие
+    type = "text",         // Тип сообщения text/file/image/audio/video/location и возможно в будущем другие
     senderId,              // Айди отправителя
     receiverId,            // Айди получателя
     
@@ -13,7 +13,7 @@ function sendMessage({
     // ДЛЯ РАЗНЫХ ТИПОВ
     fileData = null,       // Данные файла (для file/image/audio/video)
     location = null,       // Геолокацмя (для типа location если будем такой делать)
-    replyTo = null,        // Ответ на сообщение (для reply типа)
+    replyTo = null,        // Ответ на сообщение (как арг можно передавать объект со свойствами messageId, senderId, text и type)
     
     // МЕТАДАННЫЕ
     time = new Date().toISOString(),  // Время отправки
@@ -35,7 +35,7 @@ function sendMessage({
         }
     };
     
-    // ДОБАВЛЕНИЕ СПЕЦИФИЧЕСКИХ ДАННЫХ ПО ТИПУ
+    // ДОБАВЛЕНИЕ ДРУГИХ ДАННЫХ В ЗАВИСИМОСТИ ОТ ТИПА
     switch (type) {
         case "file":
         case "image":
@@ -65,16 +65,17 @@ function sendMessage({
             }
             break;
             
-        case "reply":
-            if (replyTo) {
-                baseMessage.reply = {
-                    message_id: replyTo.messageId,
-                    sender_id: replyTo.senderId,
-                    text: replyTo.text || "",
-                    type: replyTo.type || "text"
-                };
-            }
+        default:
             break;
+    }
+
+    if (replyTo) {
+        baseMessage.reply = {
+            message_id: replyTo.messageId,
+            sender_id: replyTo.senderId,
+            text: replyTo.text || "",
+            type: replyTo.type || "text"
+        };
     }
     
     // Проверка обязательныз полей
