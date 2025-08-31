@@ -1,7 +1,7 @@
 import QtQuick 
 import QtQuick.Controls
 import QtQuick.Layouts
-import "../JS/serialization.js" as Serialize
+import "main.js" as Serialize
 
 Window {
     width: 300
@@ -28,8 +28,5 @@ Window {
                 label.text = "Молодец"
             }
         }
-
-       
-
     }
 }

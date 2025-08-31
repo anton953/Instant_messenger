@@ -80,7 +80,7 @@ function sendMessage({
     
     // Проверка обязательныз полей
     if (!senderId || !receiverId) {
-        throw new Error("senderId и receiverId обязательныее");
+        throw new Error("senderId и receiverId обязательные");
     }
     
     return JSON.stringify(baseMessage);

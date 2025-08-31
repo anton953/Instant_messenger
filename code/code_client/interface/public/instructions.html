@@ -1,0 +1,355 @@
+<!-- ИНСТРУКЦИЯ К РАБОТЕ -->
+<!-- ОТКРЫТЬ В БРАУЗЕРЕ -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Архитектура ассетов Instant (QML)</title>
+    <style>
+        * {
+            user-select: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .architecture {
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        
+        .folder-structure {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .folder {
+            margin: 15px 0;
+            padding: 15px;
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+        
+        .folder-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        
+        .folder-icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+            color: #3498db;
+        }
+        
+        .folder-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+        
+        .folder-content {
+            margin-left: 30px;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+        
+        .folder-content.show {
+            display: block;
+        }
+        
+        .file {
+            user-select: text;
+            padding: 8px 5px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .file:last-child {
+            border-bottom: none;
+        }
+        
+        .file-icon {
+            color: #27ae60;
+            margin-right: 8px;
+        }
+        
+        .qml-specific {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        
+        .qml-specific .folder-icon {
+            color: #e74c3c;
+        }
+        
+        .important-note {
+            background: #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .note-header {
+            font-weight: bold;
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+
+        .selectable {
+            user-select: text;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Архитектура ассетов мессенджера Instant</h1>
+            <div class="subtitle">INSTANT - структура проекта и организация кода</div>
+        </header>
+        
+        <div class="architecture">
+            <div class="important-note">
+                <div class="note-header">⚠️ ССЫЛКА НА ОФФИЦИАЛЬНУЮ ДОКУМЕНТАЦИЮ QML!</div>
+                <a href="https://doc.qt.io/qt-6/qtquick-qmlmodule.html" target="_blank" class="selectable">ОФФИЦИАЛЬНАЯ ДОКУМЕНТАЦИЯ</a>
+            </div>
+            
+            <div class="folder-structure">
+                <div class="folder">
+                    <div class="folder-header" onclick="toggleFolder(this)">
+                        <span class="folder-icon">📁</span>
+                        <span class="folder-name">INTERFASE/</span>
+                    </div>
+                    <div class="folder-content">
+                        <div class="folder">
+                            <div class="folder-header" onclick="toggleFolder(this)">
+                                <span class="folder-icon">📁</span>
+                                <span class="folder-name">public/</span>
+                            </div>
+                            <div class="folder-content">
+                                <div class="file"><span class="file-icon">📄</span>instructions.html - Вот эта инструкция</div>
+                            </div>
+                        </div>
+                        
+                        <div class="folder">
+                            <div class="folder-header" onclick="toggleFolder(this)">
+                                <span class="folder-icon">📁</span>
+                                <span class="folder-name">src/</span>
+                            </div>
+                            <div class="folder-content">
+                                <div class="file"><span class="file-icon">📄</span>main_window.qml - главный QML файл</div>
+                                <div class="file"><span class="file-icon">📄</span>main.js - главный файл JavaScript</div>
+                                
+                                <div class="folder">
+                                    <div class="folder-header" onclick="toggleFolder(this)">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">assets/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="file"><span class="file-icon">🖼️</span>images/ - иконки, аватары, и другие фото</div>
+                                        <div class="file"><span class="file-icon">🔊</span>sounds/ - звуки сообщений и уведомлений, системные и т.д.</div>
+                                        <div class="file"><span class="file-icon">🔤</span>fonts/ - шрифты приложения</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="folder">
+                                    <div class="folder-header" onclick="toggleFolder(this)">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">components/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="file"><span class="file-icon">🔧</span>ui/ - базовые QML компоненты (Button.qml, Input.qml)</div>
+                                        <div class="file"><span class="file-icon">💬</span>chat/ - компоненты чата (Например, MessageInput.qml)</div>
+                                        <div class="file"><span class="file-icon">👤</span>user/ - компоненты пользователя (Например Avatar.qml)</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="folder">
+                                    <div class="folder-header" onclick="toggleFolder(this)">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">design/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="file"><span class="file-icon">🎨</span>BaseStyles.css - Дефолтные стили + разные сокращения стилей</div>
+                                        <div class="file"><span class="file-icon">📏</span>Formating.qml - размеры, отступы, шрифты и тд</div>
+                                        <div class="file"><span class="file-icon">🎭</span>Animations.qml - анимации</div>
+                                        <div class="file"><span class="file-icon">🎨</span>Themes.css - разные темы (комбинации стилей чтобы можно было менять темы)</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="folder">
+                                    <div class="folder-header" onclick="toggleFolder(this)">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">helpers/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="file"><span class="file-icon">⏰</span>TimeUtils.js - работа с временем (получать время с сервера)</div>
+                                        <!-- <div class="file"><span class="file-icon">📨</span>MessageHelpers.js - отправка и парсинг сообщений</div> -->
+                                        <div class="file"><span class="file-icon">🔐</span>Encryption.js - шифрование сообщений (возможно)</div>
+                                        <!-- <div class="file"><span class="file-icon">✅</span>Validation.js - валидация данных</div> -->
+                                    </div>
+                                </div>
+                                
+                                <div class="folder">
+                                    <div class="folder-header" onclick="toggleFolder(this)">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">hooks/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <!-- <div class="file"><span class="file-icon">🔌</span>WebSocketService.js - сервис WebSocket соединения</div> -->
+                                        <div class="file"><span class="file-icon">🔐</span>AuthService.js - сервис авторизации</div>
+                                        <div class="file"><span class="file-icon">💾</span>StorageService.js - работа с локальным хранилищем</div>
+                                        <div class="file"><span class="file-icon">🌐</span>NetworkService.js - сетевые запросы</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="folder">
+                                    <div class="folder-header" onclick="toggleFolder(this)">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">layout/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="file"><span class="file-icon">🏗️</span>MainLayout.qml - основной каркас приложения</div>
+                                        <div class="file"><span class="file-icon">📱</span>ChatLayout.qml - layout страницы чата</div>
+                                        <div class="file"><span class="file-icon">👥</span>ContactsLayout.qml - layout списка контактов</div>
+                                        <div class="file"><span class="file-icon">⚙️</span>SettingsLayout.qml - layout настроек</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="folder">
+                                    <div class="folder-header" onclick="toggleFolder(this)">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">pages/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="file"><span class="file-icon">🔐</span>LoginPage.qml - страница авторизации</div>
+                                        <div class="file"><span class="file-icon">💬</span>ChatPage.qml - страница чата</div>
+                                        <div class="file"><span class="file-icon">👥</span>ContactsPage.qml - страница контактов</div>
+                                        <div class="file"><span class="file-icon">⚙️</span>SettingsPage.qml - страница настроек</div>
+                                        <div class="file"><span class="file-icon">❓</span>NotFoundPage.qml - страница 404</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="folder qml-specific">
+                                    <div class="folder-header" onclick="toggleFolder(this)">
+                                        <span class="folder-icon">💾</span>
+                                        <span class="folder-name">store/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="file"><span class="file-icon">🗂️</span>MessageStore.js - хранилище сообщений</div>
+                                        <div class="file"><span class="file-icon">👥</span>UserStore.js - хранилище пользователей</div>
+                                        <div class="file"><span class="file-icon">💬</span>ChatStore.js - хранилище чатов</div>
+                                        <div class="file"><span class="file-icon">⚙️</span>SettingsStore.js - хранилище настроек</div>
+                                        
+                                        <div class="folder qml-specific">
+                                            <div class="folder-header" onclick="toggleFolder(this)">
+                                                <span class="folder-icon">📡</span>
+                                                <span class="folder-name">API/</span>
+                                            </div>
+                                            <div class="folder-content">
+                                                <div class="file"><span class="file-icon">🔐</span>AuthAPI.js - API авторизации</div>
+                                                <div class="file"><span class="file-icon">📨</span>MessagesAPI.js - API сообщений</div>
+                                                <div class="file"><span class="file-icon">👥</span>UsersAPI.js - API пользователей</div>
+                                                <div class="file"><span class="file-icon">💬</span>ChatsAPI.js - API чатов</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="important-note">
+                <div class="note-header">🎯 ИНСТРУКЦИИ ПО ТОМУ КАК ПРАВИЛЬНО РАБОТАТЬ С ФАЙЛАМИ ЗДЕСЬ И ЧТО КУДА ПИСАТЬ БУДУТ НИЖЕ:</div>
+                <p>1. <strong>Скоро сделаю</strong> - пока тут ничего важного</p>
+                <p>2. <strong>Бла Бла</strong> - бла бла бла</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Архитектура ассетов мессенджера Instant | © WaterMuffin | 2025 </p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleFolder(element) {
+    const content = element.nextElementSibling;
+    content.classList.toggle('show');
+    element.classList.toggle('expanded');
+}
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const mainFolder = document.querySelector('.folder-header');
+    if (mainFolder) {
+        mainFolder.click();
+    }
+});
+    </script>
+</body>
+</html>
