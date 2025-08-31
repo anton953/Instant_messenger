@@ -1,5 +1,6 @@
 from server import *
 
+
 def main():
     start_server()
 
