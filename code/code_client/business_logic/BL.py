@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QApplication
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtCore import QUrl
 import sys
-#commit
+
 
 class BusinessLogic():
     def __init__(self):
