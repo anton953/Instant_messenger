@@ -1,5 +1,6 @@
 import socket
 import threading
+import json
 
 # Функция для получения сообщений от сервера
 def receive_messages(client_socket):

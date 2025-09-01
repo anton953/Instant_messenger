@@ -1,4 +1,4 @@
-from server import *
+from Instant_messenger.code.code_server.prot_server import *
 
 
 def main():
