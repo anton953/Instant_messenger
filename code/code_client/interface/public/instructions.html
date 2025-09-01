@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://github.com/anton953/Instant_messenger/blob/main/documents/logo/logo_1.jpg?raw=true">
     <title>Архитектура ассетов Instant (QML)</title>
     <style>
         * {
@@ -163,6 +164,60 @@
                 font-size: 2em;
             }
         }
+        
+        button {
+            cursor: pointer;
+            border-radius: 10px;
+            margin-left: 40px;
+            font-size: medium;
+            padding: 5px 10px;
+            background: #ffffff33;
+            font-weight: bold;
+            color: #d35400;
+            border: solid 2px #d35400;
+            transition: background 0.8s;
+        }
+        button:hover {
+            background: #acacac33;
+            transition: background 0.5s;
+        }
+        button:active {
+            background: #ffffff97;
+            transition: background 0.1s
+        }
+
+        .n {
+            text-decoration: none;
+        }
+
+        li {
+            margin-left: 20px;
+            user-select: text;
+        }
+
+        li strong {
+            user-select: text;
+        }
+
+        .sum {
+            cursor: pointer;
+        }
+
+        details {
+            margin: 20px 0;
+        }
+
+        ol li {
+            font-weight: bold;
+            padding: 30px 0;
+            border-top: dotted 2px #333;
+            border-radius: 2px;
+            margin: 0 100px 0 0;
+        }
+
+        #first_li {
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -182,7 +237,7 @@
                 <div class="folder">
                     <div class="folder-header" onclick="toggleFolder(this)">
                         <span class="folder-icon">📁</span>
-                        <span class="folder-name">INTERFASE/</span>
+                        <span class="folder-name">INTERFACE/</span>
                     </div>
                     <div class="folder-content">
                         <div class="folder">
@@ -201,8 +256,8 @@
                                 <span class="folder-name">src/</span>
                             </div>
                             <div class="folder-content">
-                                <div class="file"><span class="file-icon">📄</span>main_window.qml - главный QML файл</div>
-                                <div class="file"><span class="file-icon">📄</span>main.js - главный файл JavaScript</div>
+                                <div class="file"><span class="file-icon">📄</span><a target="_blank" class="n" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/main_window.qml">main_window.qml - главный QML файл</a></div>
+                                <div class="file"><span class="file-icon">📄</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/main.js" class="n">main.js - главный файл JavaScript</a></div>
                                 
                                 <div class="folder">
                                     <div class="folder-header" onclick="toggleFolder(this)">
@@ -234,10 +289,10 @@
                                         <span class="folder-name">design/</span>
                                     </div>
                                     <div class="folder-content">
-                                        <div class="file"><span class="file-icon">🎨</span>BaseStyles.css - Дефолтные стили + разные сокращения стилей</div>
-                                        <div class="file"><span class="file-icon">📏</span>Formating.qml - размеры, отступы, шрифты и тд</div>
-                                        <div class="file"><span class="file-icon">🎭</span>Animations.qml - анимации</div>
-                                        <div class="file"><span class="file-icon">🎨</span>Themes.css - разные темы (комбинации стилей чтобы можно было менять темы)</div>
+                                        <div class="file"><span class="file-icon">🎨</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/design/BaseStyles.css" class="n">BaseStyles.css - Дефолтные стили + разные сокращения стилей</a></div>
+                                        <div class="file"><span class="file-icon">📏</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/design/Formating.qml" class="n">Formating.qml - размеры, отступы, шрифты и тд</a></div>
+                                        <div class="file"><span class="file-icon">🎭</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/design/Animations.qml" class="n">Animations.qml - анимации</a></div>
+                                        <div class="file"><span class="file-icon">🎨</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/design/Themes.css" class="n">Themes.css - разные темы (комбинации стилей чтобы можно было менять темы)</a></div>
                                     </div>
                                 </div>
                                 
@@ -247,9 +302,9 @@
                                         <span class="folder-name">helpers/</span>
                                     </div>
                                     <div class="folder-content">
-                                        <div class="file"><span class="file-icon">⏰</span>TimeUtils.js - работа с временем (получать время с сервера)</div>
+                                        <div class="file"><span class="file-icon">⏰</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/helpers/TimeUtils.js" class="n">TimeUtils.js - работа с временем (получать время с сервера)</a></div>
                                         <!-- <div class="file"><span class="file-icon">📨</span>MessageHelpers.js - отправка и парсинг сообщений</div> -->
-                                        <div class="file"><span class="file-icon">🔐</span>Encryption.js - шифрование сообщений (возможно)</div>
+                                        <div class="file"><span class="file-icon">🔐</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/helpers/Encryption.js" class="n">Encryption.js - работа с какими-то шифрами (возможно)</a></div>
                                         <!-- <div class="file"><span class="file-icon">✅</span>Validation.js - валидация данных</div> -->
                                     </div>
                                 </div>
@@ -261,9 +316,9 @@
                                     </div>
                                     <div class="folder-content">
                                         <!-- <div class="file"><span class="file-icon">🔌</span>WebSocketService.js - сервис WebSocket соединения</div> -->
-                                        <div class="file"><span class="file-icon">🔐</span>AuthService.js - сервис авторизации</div>
-                                        <div class="file"><span class="file-icon">💾</span>StorageService.js - работа с локальным хранилищем</div>
-                                        <div class="file"><span class="file-icon">🌐</span>NetworkService.js - сетевые запросы</div>
+                                        <div class="file"><span class="file-icon">🔐</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/hooks/AuthService.js" class="n">AuthService.js - сервис авторизации</a></div>
+                                        <div class="file"><span class="file-icon">💾</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/hooks/StorageService.js" class="n">StorageService.js - работа с локальным хранилищем</a></div>
+                                        <div class="file"><span class="file-icon">🌐</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/hooks/NetworkService.js" class="n">NetworkService.js - сетевые запросы</a></div>
                                     </div>
                                 </div>
                                 
@@ -273,10 +328,10 @@
                                         <span class="folder-name">layout/</span>
                                     </div>
                                     <div class="folder-content">
-                                        <div class="file"><span class="file-icon">🏗️</span>MainLayout.qml - основной каркас приложения</div>
-                                        <div class="file"><span class="file-icon">📱</span>ChatLayout.qml - layout страницы чата</div>
-                                        <div class="file"><span class="file-icon">👥</span>ContactsLayout.qml - layout списка контактов</div>
-                                        <div class="file"><span class="file-icon">⚙️</span>SettingsLayout.qml - layout настроек</div>
+                                        <div class="file"><span class="file-icon">🏗️</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/layout/MainLayout.qml" class="n">MainLayout.qml - основной каркас приложения</a></div>
+                                        <div class="file"><span class="file-icon">📱</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/layout/ChatLayout.qml" class="n">ChatLayout.qml - layout страницы чата</a></div>
+                                        <div class="file"><span class="file-icon">👥</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/layout/ContactsLayout.qml" class="n">ContactsLayout.qml - layout списка контактов</a></div>
+                                        <div class="file"><span class="file-icon">⚙️</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/layout/SettingsLayout.qml" class="n">SettingsLayout.qml - layout настроек</a></div>
                                     </div>
                                 </div>
                                 
@@ -286,11 +341,11 @@
                                         <span class="folder-name">pages/</span>
                                     </div>
                                     <div class="folder-content">
-                                        <div class="file"><span class="file-icon">🔐</span>LoginPage.qml - страница авторизации</div>
-                                        <div class="file"><span class="file-icon">💬</span>ChatPage.qml - страница чата</div>
-                                        <div class="file"><span class="file-icon">👥</span>ContactsPage.qml - страница контактов</div>
-                                        <div class="file"><span class="file-icon">⚙️</span>SettingsPage.qml - страница настроек</div>
-                                        <div class="file"><span class="file-icon">❓</span>NotFoundPage.qml - страница 404</div>
+                                        <div class="file"><span class="file-icon">🔐</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/pages/LoginPage.qml" class="n">LoginPage.qml - страница авторизации</a></div>
+                                        <div class="file"><span class="file-icon">💬</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/pages/ChatPage.qml" class="n">ChatPage.qml - страница чата</a></div>
+                                        <div class="file"><span class="file-icon">👥</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/pages/ContactsPage.qml" class="n">ContactsPage.qml - страница контактов</a></div>
+                                        <div class="file"><span class="file-icon">⚙️</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/pages/SettingsPage.qml" class="n">SettingsPage.qml - страница настроек</a></div>
+                                        <div class="file"><span class="file-icon">❓</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/pages/NotFoundPage.qml" class="n">NotFoundPage.qml - страница 404</a></div>
                                     </div>
                                 </div>
                                 
@@ -300,10 +355,10 @@
                                         <span class="folder-name">store/</span>
                                     </div>
                                     <div class="folder-content">
-                                        <div class="file"><span class="file-icon">🗂️</span>MessageStore.js - хранилище сообщений</div>
-                                        <div class="file"><span class="file-icon">👥</span>UserStore.js - хранилище пользователей</div>
-                                        <div class="file"><span class="file-icon">💬</span>ChatStore.js - хранилище чатов</div>
-                                        <div class="file"><span class="file-icon">⚙️</span>SettingsStore.js - хранилище настроек</div>
+                                        <div class="file"><span class="file-icon">🗂️</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/store/MessageStore.js" class="n">MessageStore.js - хранилище сообщений</a></div>
+                                        <div class="file"><span class="file-icon">👥</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/store/UserStore.js" class="n">UserStore.js - хранилище пользователей</a></div>
+                                        <div class="file"><span class="file-icon">💬</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/store/ChatStore.js" class="n">ChatStore.js - хранилище чатов</a></div>
+                                        <div class="file"><span class="file-icon">⚙️</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/store/SettingsStore.js" class="n">SettingsStore.js - хранилище настроек</a></div>
                                         
                                         <div class="folder qml-specific">
                                             <div class="folder-header" onclick="toggleFolder(this)">
@@ -311,10 +366,10 @@
                                                 <span class="folder-name">API/</span>
                                             </div>
                                             <div class="folder-content">
-                                                <div class="file"><span class="file-icon">🔐</span>AuthAPI.js - API авторизации</div>
-                                                <div class="file"><span class="file-icon">📨</span>MessagesAPI.js - API сообщений</div>
-                                                <div class="file"><span class="file-icon">👥</span>UsersAPI.js - API пользователей</div>
-                                                <div class="file"><span class="file-icon">💬</span>ChatsAPI.js - API чатов</div>
+                                                <div class="file"><span class="file-icon">🔐</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/store/API/AuthAPI.js" class="n">AuthAPI.js - API авторизации</a></div>
+                                                <div class="file"><span class="file-icon">📨</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/store/API/MessagesAPI.js" class="n">MessagesAPI.js - API сообщений</a></div>
+                                                <div class="file"><span class="file-icon">👥</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/store/API/UsersAPI.js" class="n">UsersAPI.js - API пользователей</a></div>
+                                                <div class="file"><span class="file-icon">💬</span><a target="_blank" href="https://github.com/anton953/Instant_messenger/blob/main/code/code_client/interface/src/store/API/ChatsAPI.js" class="n">ChatsAPI.js - API чатов</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -326,9 +381,149 @@
             </div>
             
             <div class="important-note">
-                <div class="note-header">🎯 ИНСТРУКЦИИ ПО ТОМУ КАК ПРАВИЛЬНО РАБОТАТЬ С ФАЙЛАМИ ЗДЕСЬ И ЧТО КУДА ПИСАТЬ БУДУТ НИЖЕ:</div>
-                <p>1. <strong>Скоро сделаю</strong> - пока тут ничего важного</p>
-                <p>2. <strong>Бла Бла</strong> - бла бла бла</p>
+                <div class="note-header">🎯 ИНСТРУКЦИЯ ПО РАБОТЕ С ФАЙЛАМИ
+                    <button onclick="expandAllDetails()">РАЗВЕРНУТЬ ВСЁ</button>
+                    <button onclick="unexpandAllDetails()">СПРЯТАТЬ ВСЁ</button>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <details open>
+                        <summary class="sum"><strong>🏗️ ОСНОВНЫЕ ФАЙЛЫ</strong></summary>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>main_window.qml</strong> - Главный файл интерфейса. Сюда импортируем все компоненты и layout + управляем навигацией</li>
+                            <li><strong>main.js</strong> - Главный JavaScript файл. Тут наверно будет инициализация всяких сервисов или что-то такое</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary class="sum"><strong>📁 ASSETS/ - РЕСУРСЫ</strong></summary>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>images/</strong> - Папка для изображений, например таких:
+                                <ul>
+                                    <li>icons/ - иконки приложения (например svg-шки для кнопок)</li>
+                                    <li>backgrounds/ - фоновые изображения</li>
+                                    <li>...</li>
+                                </ul>
+                            </li>
+                            <li><strong>sounds/</strong> - Папка для звуков, например таких:
+                                <ul>
+                                    <li>messages/ - звуки сообщений</li>
+                                    <li>system/ - звуки интерфейса</li>
+                                    <li>...</li>
+                                </ul>
+                            </li>
+                            <li><strong>fonts/</strong> - Папка для шрифтов (скорее всего .ttf)</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary class="sum"><strong>🧩 COMPONENTS/ - КОМПОНЕНТЫ</strong></summary>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>ui/</strong> - Базовые UI элементы, например:
+                                <ul>
+                                    <li>Button.qml - кнопки разных типов</li>
+                                    <li>Input.qml - поля ввода текста</li>
+                                    <li>...</li>
+                                </ul>
+                            </li>
+                            <li><strong>chat/</strong> - Компоненты чата, например:
+                                <ul>
+                                    <li>MessageInput.qml - поле ввода сообщений</li>
+                                    <li>TextMessageBlock.qml - текстовое сообщение</li>
+                                    <li>ChatList.qml - список чатов</li>
+                                    <li>...</li>
+                                </ul>
+                            </li>
+                            <li><strong>user/</strong> - Компоненты пользователя
+                                <!-- <ul>
+                                    <li>...</li>
+                                </ul> -->
+                            </li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary class="sum"><strong>🎨 DESIGN/ - ДИЗАЙН</strong></summary>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>BaseStyles.css</strong> - Базовые стили и CSS переменные</li>
+                            <li><strong>Formating.qml</strong> - Размеры, отступы, шрифты</li>
+                            <li><strong>Animations.qml</strong> - Анимации и переходы</li>
+                            <li><strong>Themes.css</strong> - Цветовые темы (например light/dark/пользовательские)</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary class="sum"><strong>🔧 HELPERS/ - ПОМОЩНИКИ</strong></summary>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>TimeUtils.js</strong> - Работа с временем (получение реального времени)</li>
+                            <li><strong>Encryption.js</strong> - Работа с какими-то шифрами (возможно)</li>
+                            <li><strong>Formatters.js</strong> - Функции форматированиея текста</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary class="sum"><strong>⚡ HOOKS/ - СЕРВИСЫ</strong></summary>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>AuthService.js</strong> - Сервис авторизации</li>
+                            <li><strong>StorageService.js</strong> - Локальное хранилище (управление)</li>
+                            <li><strong>NetworkService.js</strong> - Сетевые запросы</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary class="sum"><strong>🏗️ LAYOUT/ - КАРКАСЫ</strong></summary>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>MainLayout.qml</strong> - Основной каркас приложения</li>
+                            <li><strong>ChatLayout.qml</strong> - Layout страницы чата</li>
+                            <li><strong>ContactsLayout.qml</strong> - Layout контактов</li>
+                            <li><strong>SettingsLayout.qml</strong> - Layout настроек</li>
+                            <li>... Здесь еще что-то будет ...</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary class="sum"><strong>📱 PAGES/ - СТРАНИЦЫ</strong></summary>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>LoginPage.qml</strong> - Страница авторизации</li>
+                            <li><strong>ChatPage.qml</strong> - Страница чата</li>
+                            <li><strong>ContactsPage.qml</strong> - Страница контактов</li>
+                            <li><strong>SettingsPage.qml</strong> - Страница настроек</li>
+                            <li><strong>NotFoundPage.qml</strong> - Страница 404</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary class="sum"><strong>💾 STORE/ - ХРАНИЛИЩА</strong></summary>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>MessageStore.js</strong> - Хранилище сообщений</li>
+                            <li><strong>UserStore.js</strong> - Хранилище локальных записей о пользователях</li>
+                            <li><strong>ChatStore.js</strong> - Хранилище чатов</li>
+                            <li><strong>SettingsStore.js</strong> - Хранилище настроек</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary class="sum"><strong>📡 STORE/API/ - API МОДУЛИ</strong></summary>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>AuthAPI.js</strong> - API авторизации</li>
+                            <li><strong>MessagesAPI.js</strong> - API сообщений</li>
+                            <li><strong>UsersAPI.js</strong> - API пользователей</li>
+                            <li><strong>ChatsAPI.js</strong> - API чатов</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div style="background: #ffeaa7; padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #de3838; border-bottom: 2px solid #d3540057; border-top: 2px solid #d3540057; border-right: 2px solid #d3540057;">
+                    <div style="font-weight: bold; color: #d35400; margin-bottom: 10px;">⚠️ ИНСТРУКЦИЯ ПО РАБОТЕ:</div>
+                    <ol style="margin: 0; padding-left: 20px;">
+                        <li id="first_li">Определяешь что конкретно тебе нужно сделать (Например создать кнопку, страницу, layout)</li>
+                        <li>Ищешь выше файл в который нужно внести изменения</li>
+                        <li>Если в файле работал кто-то до тебя, желательно использовать тот же стиль написания кода <br> (либо мы позже придумаем единый стиль)</li>
+                        <li>Написанный код обязательно комментируешь, после чего пушишь ветку (если задача сделана)</li>
+                        <li>Кидаешь ветку на код-ревью (обязательно) <br> НЕ ЗАБЫВАЕМ ПИСАТЬ БОЛЬШИЕ ОПИСАНИЯ ПУЛ-РЕКВЕСТАМ</li>
+                        <li>Всё, работа окончена. Можно куда-нибудь в чатик написать что ты менял такой-то файл, а так больше ничего</li>
+                    </ol>
+                </div>
             </div>
         </div>
         
@@ -338,18 +533,36 @@
     </div>
 
     <script>
-        function toggleFolder(element) {
+function toggleFolder(element) {
     const content = element.nextElementSibling;
     content.classList.toggle('show');
     element.classList.toggle('expanded');
 }
 
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const mainFolder = document.querySelector('.folder-header');
     if (mainFolder) {
         mainFolder.click();
     }
 });
+function expandAllDetails() {
+    const allDetails = document.querySelectorAll('details');
+    
+    allDetails.forEach(detail => {
+        detail.open = true;
+    });
+}
+
+function unexpandAllDetails() {
+    const allDetails = document.querySelectorAll('details');
+    
+    allDetails.forEach(detail => {
+        detail.open = false;
+    });
+    
+}
+
+
     </script>
 </body>
 </html>
